@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --muted: #6b7280;
+  --accent: #f3f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111827;
+    --foreground: #f9fafb;
+    --card-bg: #1f2937;
+    --border-color: #374151;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --muted: #9ca3af;
+    --accent: #1f2937;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg shadow-sm transition-all duration-200;
+  }
+
+  .stats-card {
+    @apply p-6 flex flex-col gap-2;
+  }
+
+  .tab {
+    @apply px-4 py-2 text-sm font-medium transition-colors hover:text-[var(--primary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)];
+  }
+
+  .tab.active {
+    @apply text-[var(--primary)] border-b-2 border-[var(--primary)];
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-[var(--accent)] overflow-hidden;
+  }
+
+  .progress-value {
+    @apply h-full bg-[var(--primary)] transition-all duration-300;
+  }
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-[var(--foreground)];
+}
+
+.stat-label {
+  @apply text-sm font-medium text-[var(--muted)];
+}
+
+/* Animation utilities */
+.fade-in {
+  @apply opacity-0 animate-[fadeIn_0.3s_ease-in_forwards];
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
