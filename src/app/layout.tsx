@@ -1,5 +1,5 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 
 // Configure Inter font with expanded subsets and display settings
@@ -9,13 +9,19 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-export const metadata: Metadata = {
-  title: 'Token Rivalry Dashboard',
-  description: 'Battle of Catguette vs Doguette',
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: '#111827' }
-  ],
+  ]
+}
+
+export const metadata: Metadata = {
+  title: 'Token Rivalry Dashboard',
+  description: 'Battle of Catguette vs Doguette',
 }
 
 export default function RootLayout({
@@ -25,9 +31,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <main className="min-h-screen flex flex-col">
           {children}
