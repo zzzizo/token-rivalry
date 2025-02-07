@@ -122,8 +122,8 @@ const Dashboard: React.FC<DashboardProps> = ({ data }) => {
                         <button
                             key={tab}
                             className={`flex-1 py-4 px-6 text-center transition-colors ${activeTab === tab
-                                    ? 'border-b-2 border-[var(--primary)] text-[var(--primary)] font-semibold'
-                                    : 'text-[var(--muted)] hover:text-[var(--foreground)]'
+                                ? 'border-b-2 border-[var(--primary)] text-[var(--primary)] font-semibold'
+                                : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                                 }`}
                             onClick={() => setActiveTab(tab)}
                         >
